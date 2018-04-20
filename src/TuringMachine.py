@@ -11,7 +11,7 @@ class TuringMachine:
     state_table = {}
     
     def __init__(self):
-        self.tape = ["#", "#", "#", "#", "0", "#", "#", "#", "0", "#", "#", "#", "#", "#"]
+        self.tape = ["#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"]
         self.state_table = {
             ("#", "s0"): ("1", "L", "s1"),
             ("0", "s0"): ("#", "N", "s0"),
@@ -49,4 +49,3 @@ class TuringMachine:
                 break
         last_state = state + ": " + "".join(tape) ## + "\n" + "    " + " " * head + "^"
         return last_state
-
