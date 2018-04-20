@@ -25,7 +25,8 @@ class TuringMachine:
         }   
 
     def print_state(self, state, tape, head):
-        return state.rjust(2) + ": " + "".join(tape) + "\n" + "      " + " " * head + "^"
+        return state.rjust(2) + ": " + "".join(tape)
+               ## + "\n" + "      " + " " * head + "^"
 
     def simulate(self, instructions):
         tape = self.tape
@@ -34,7 +35,6 @@ class TuringMachine:
         output = []
         output.append(self.print_state(state, tape, head))
         print(self.print_state(state, tape, head))
-        print ("Starting: " + "\n")
         while state != 'h':
             key = (tape[head], state)
             tape_symbol, head_direction, new_state = instructions[key]
@@ -47,9 +47,5 @@ class TuringMachine:
                 print(self.print_state(state, tape, head))
                 output.append(self.print_state(state, tape, head))
                 break
-        print ("Halt.\n")
-        last_state = state + ": " + "".join(tape) + "\n" + "    " + " " * head + "^"
-        return output   
-
-bb3s = TuringMachine()
-bb3s.simulate(bb3s.state_table)
+        last_state = state + ": " + "".join(tape) ## + "\n" + "    " + " " * head + "^"
+        return last_state
